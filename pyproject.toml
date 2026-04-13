@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ipo-rag-assistant"
+version = "0.1.0"
+description = "IPO prospectus RAG assistant (minimal LangChain + OpenAI + Chroma)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "langchain>=0.3.0",
+    "langchain-openai",
+    "langchain-chroma",
+    "langchain-community",
+    "langchain-text-splitters",
+    "pypdf>=4.0.0",
+    "python-dotenv>=1.0.0",
+    "typer>=0.9.0",
+]
+
+[project.scripts]
+ipo-rag = "ipo_rag.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
