@@ -40,6 +40,10 @@ def embedding_model_name() -> str:
     return os.environ.get("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 
 
+def embedding_batch_size() -> int:
+    return int(os.environ.get("IPO_EMBED_BATCH_SIZE", "100"))
+
+
 def chunk_size() -> int:
     return int(os.environ.get("IPO_CHUNK_SIZE", "900"))
 
@@ -50,6 +54,14 @@ def chunk_overlap() -> int:
 
 def top_k() -> int:
     return int(os.environ.get("IPO_TOP_K", "6"))
+
+
+def report_retrieval_k() -> int:
+    return int(os.environ.get("IPO_REPORT_K", "4"))
+
+
+def report_fetch_k() -> int:
+    return int(os.environ.get("IPO_REPORT_FETCH_K", "16"))
 
 
 def get_chat_llm():
